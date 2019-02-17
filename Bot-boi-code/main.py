@@ -48,4 +48,4 @@ async def beep():
     '''Checks if bot is responsive'''
     await bot.say("boop!")
 
-bot.run("NTQ0ODkwNzU4MTIyMTc2NTEy.D0cjAQ.t_DqqFA_ZmIui_cy3U0lvsO75uQ")
+bot.run("TOKEN")
