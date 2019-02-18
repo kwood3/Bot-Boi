@@ -1,7 +1,14 @@
+# # # # # # # # # # # # # # # # # # #
+#                                   #
+#       bot boi v0.2 by Koby W      #
+#                                   #
+# # # # # # # # # # # # # # # # # # #
+
 #!/usr/bin/python3
 import sys
 
 print(sys.version)
+print("Booting bot")
 #print(sys.path)
 
 import discord
@@ -28,7 +35,10 @@ async def on_message_delete(message):
     author = message.author
     content = message.content
     channel = message.channel
-    await bot.send_message(channel, '{}: {}'.format("Message deleted in ", channel, ":", author, content))
+    modlog = bot.get_channel("546771825347002376")
+    #modlog = bot.get_channel("mod-log")
+    await bot.send_message(modlog, " \"{}\" - deleted in {}, from {} .".format(content, channel, author))
+    print("(Message delete) Channel sending report to: {}, from {}: {} ".format(modlog, author, content))
 
 @bot.command(pass_context = True)
 async def say(ctx, *args):
@@ -40,6 +50,7 @@ async def say(ctx, *args):
 
 @bot.command()
 async def changeprefix(ctx, newPrefix):
+    '''Currently under-development - used to change bot prefix '''
     prefix=newPrefix
     await bot.say("prefix changed to " + args)
 
